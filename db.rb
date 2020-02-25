@@ -69,7 +69,7 @@ class Queryer
     def get_contacts
         contacts = []
         sql = "
-            select customerid, emailaddress, fname, lname, customerstatus, streetaddress1, streetaddress2, city, state, zip, dateofbirth 
+            select customerid, emailaddress, fname, lname, customerstatus, streetaddress1, streetaddress2, city, state, zip, dateofbirth, phone, dateadded 
             from customers where isnull(deletedfromaccount,0) != 1 and accountid = #{@accid}"
         base_contacts = @db.execute(sql)
         base_contacts.each do |c|

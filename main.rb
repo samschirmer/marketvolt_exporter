@@ -42,6 +42,8 @@ batches.each_with_index do |batch, i|
             'city' => c['city'],
             'state' => c['state'],
             'zip' => c['zip'],
+            'phone' => c['phone'],
+            'dateadded' => c['dateadded'],
             'dateofbirth' => c['dateofbirth']
         }
         db.fields.each { |field| record.store(field, '') }
