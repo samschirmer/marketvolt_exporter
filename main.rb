@@ -7,7 +7,7 @@ require './db'
 #print "\naccount id?: "
 # accid = $stdin.gets.chomp()
 accid = 5459312
-#accid = 296299
+accid = 296299
 
 db = Queryer.new accid
 db.populate_contacts
@@ -63,7 +63,7 @@ batches.each_with_index do |batch, i|
     raw_chars = db.get_batch_customer_characteristics(ids)
     raw_chars.each do |cv| 
         record = records.detect { |a| a['id'] == cv['customerid'] }
-        record[cv['characteristicname']] = cv['characteristicname'] if !record.nil? && cv['recipientid'] == record['id']
+        record[cv['characteristicname']] = cv['characteristicname'] if !record.nil? && cv['customerid'] == record['id']
     end
 
     records.each { |record| rows << record }
