@@ -6,8 +6,6 @@ require './db'
 
 print "\naccount id?: "
 accid = $stdin.gets.chomp()
-#accid = 5459312
-#accid = 296299
 
 db = Queryer.new accid
 db.populate_contacts
@@ -70,6 +68,7 @@ batches.each_with_index do |batch, i|
     puts "batch #{i + 1} of #{num_batches} complete (#{batch_size} per batch)"
 end
     
+# writing to file
 if rows.count > 0
     puts "writing file..."
     filename = "mv_export_#{db.accid}.csv"
