@@ -4,10 +4,10 @@ require 'tiny_tds'
 require './secrets'
 require './db'
 
-#print "\naccount id?: "
-# accid = $stdin.gets.chomp()
-accid = 5459312
-accid = 296299
+print "\naccount id?: "
+accid = $stdin.gets.chomp()
+#accid = 5459312
+#accid = 296299
 
 db = Queryer.new accid
 db.populate_contacts
@@ -48,8 +48,6 @@ batches.each_with_index do |batch, i|
         }
         db.fields.each { |field| record.store(field, '') }
         db.chars.each { |char| record.store(char, '') }
-        pp c if record['id'].to_s == '28218171'
-        pp record if record['id'].to_s == '28218171'
         records << record
         ids << c['customerid']
     end
